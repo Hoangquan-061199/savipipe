@@ -1,0 +1,86 @@
+$--main-color: #a90d13;
+$--main-color-2: #214497;
+$--text-color: #333;
+$--color-white: #fff;
+$--color-black: #000;
+$--footer-color: #efefef;
+$--border-color: #ededed;
+$--placeholder-color: #606060;
+$--border-color-title: #46568d;
+$--border-color-owldot: #aaa;
+$--color-mess: #1777f1;
+$--color-zalo: #008ff3;
+
+$--bg-button: #28a9e1;
+$--bg-partner: #f8f8f8;
+$--bg-btn-reset: #8e8e8e;
+$--bg-table-head: #f5f5f5;
+$--bg-input: #f2f2f2;
+
+$--font-size-p-light: 13px;
+$--font-size-p: 14px;
+$--font-size-p-extra: 15px;
+$--font-size-name-min: 16px;
+$--font-size-name: 18px;
+$--font-size-name-extra: 20px;
+$--font-size-title: 25px;
+$--font-size-title-adsive: 25px;
+
+$--heihgt-hd-top: 27px;
+$--heihgt-hd-bot: 88px;
+
+@font-face {
+    font-family: regular;
+    src: url("../fonts/PlusJakartaSans-Regular.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: bold;
+    src: url("../fonts/PlusJakartaSans-Bold.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: medium;
+    src: url("../fonts/PlusJakartaSans-Medium.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: semibold;
+    src: url("../fonts/PlusJakartaSans-SemiBold.ttf");
+    font-display: swap;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+        margin: 0px auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        margin: 0px auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+        margin: 0px auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        margin: 0px auto;
+
+        &.container2 {
+            max-width: 1290px;
+        }
+    }
+}
