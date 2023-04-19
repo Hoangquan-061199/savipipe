@@ -4,6 +4,7 @@ $(function () {
     dots: 0,
     nav: 1,
     margin: 10,
+    smartSpeed: 1000,
     navText: [
       '<i class="fa-solid fa-angle-left"></i>',
       '<i class="fa-solid fa-angle-right"></i>',
@@ -14,6 +15,33 @@ $(function () {
     dots: 0,
     nav: 1,
     margin:0,
+    smartSpeed: 1000,
+    navText: [
+      '<i class="fa-solid fa-angle-left"></i>',
+      '<i class="fa-solid fa-angle-right"></i>',
+    ],
+  });
+  $('.slide-about').owlCarousel({
+    loop: 1,
+    items: 1,
+    center: 1,
+    dots: 0,
+    nav: 1,
+    margin:50,
+    smartSpeed: 1000,
+    navText: [
+      '<i class="fa-solid fa-angle-left"></i>',
+      '<i class="fa-solid fa-angle-right"></i>',
+    ],
+  });
+  $('.slide-achievement').owlCarousel({
+    loop: 0,
+    items: 4,
+    center: 0,
+    dots: 0,
+    nav: 1,
+    margin:10,
+    smartSpeed: 1000,
     navText: [
       '<i class="fa-solid fa-angle-left"></i>',
       '<i class="fa-solid fa-angle-right"></i>',
@@ -33,6 +61,7 @@ $(function () {
       autoplay: 0,
       dots: 0,
       loop: 0,
+      smartSpeed: 1000,
       responsiveRefreshRate: 200,
       navText: [
         '<i class="fa-solid fa-angle-left"></i>',
@@ -49,6 +78,7 @@ $(function () {
       items: slidesPerPage,
       dots: 0,
       nav: 0,
+      smartSpeed: 1000,
       mouseDrag: 0,
       smartSpeed: 200,
       slideSpeed: 500,
@@ -117,6 +147,7 @@ $(function () {
   resizeImage('.product-item .img', 263 / 375);
   resizeImage('.project-index .item', 1);
   resizeImage('.news-index .right .item .img', 131/189);
+  resizeImage('.banner', 467/1365);
 
   // if ($(window).width() > 992) {
   //     resizeImage(".service .list-service .item .img", 330 / 570);

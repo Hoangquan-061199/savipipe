@@ -44,7 +44,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
 
@@ -79,8 +79,11 @@
 }
 
 @mixin hiddenScroll {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+
+    /* Firefox */
     &::-webkit-scrollbar {
         display: none;
     }
@@ -158,5 +161,86 @@
 
     @include maxWidth(767px) {
         margin-bottom: 15px;
+    }
+}
+
+@mixin cssNavOwlAboutIndex {
+
+    .owl-next,
+    .owl-prev {
+        width: 40px;
+        height: 40px;
+        display: block;
+        border-radius: 50%;
+        background-color: $--color-white;
+        color: $--main-color;
+        font-size: 20px;
+    }
+}
+
+@mixin cssAfterBg {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: url("../images/bg-after-img.webp") no-repeat center center;
+    background-size: 100% 100%;
+    width: 100px;
+    height: 100px;
+    display: block;
+    z-index: -1;
+}
+
+@mixin cssOwlNavCertificate {
+    .owl-nav {
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+
+        .owl-next,
+        .owl-prev {
+            position: absolute;
+            top: 0;
+            background: 0 0;
+
+            i {
+                font-size: 25px;
+                color: $--main-color;
+            }
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        .owl-next {
+            right: -25px;
+        }
+
+        .owl-prev {
+            left: -25px;
+        }
+    }
+}
+
+@mixin cssFtItem {
+    h3 {
+        @include font(bold, $--font-size-p-extra, $--text-color);
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    p {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+
+        img {
+            position: absolute;
+            top: 7px;
+            left: 0;
+        }
     }
 }
