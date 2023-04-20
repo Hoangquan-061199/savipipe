@@ -185,6 +185,7 @@ img {
 
 .img {
   overflow: hidden;
+  display: block;
 }
 
 .title {
@@ -225,6 +226,9 @@ img {
 }
 .title.no-line:after {
   display: none;
+}
+.title.red {
+  color: #a90d13;
 }
 
 header {
@@ -1303,6 +1307,229 @@ header .container .hd-bot li:hover a {
   color: #a90d13;
 }
 
+.date i {
+  color: #a90d13;
+  margin-right: 5px;
+}
+
+.news-group {
+  padding-top: 50px;
+}
+.news-group .container {
+  display: flex;
+}
+.news-group .container .left {
+  width: calc(100% - 316px);
+  padding-right: 45px;
+}
+.news-group .container .left .title-detail {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ededed;
+}
+.news-group .container .left .item {
+  display: flex;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ededed;
+}
+.news-group .container .left .item .img {
+  width: 255px;
+}
+.news-group .container .left .item .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-group .container .left .item .text {
+  width: calc(100% - 255px);
+  padding-left: 15px;
+}
+.news-group .container .left .item .text h3 {
+  margin-bottom: 15px;
+}
+.news-group .container .left .item .text h3 a {
+  font-family: bold;
+  font-size: 18px;
+  color: #333;
+}
+.news-group .container .left .item .text h3:hover a {
+  color: #a90d13;
+}
+.news-group .container .left .item .text .desc {
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+.news-group .container .left .item:hover img {
+  transform: scale(1.05);
+}
+.news-group .container .left .like-share {
+  padding: 10px 0 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ededed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.news-group .container .left .like-share .fb-like {
+  width: 65px;
+  overflow: hidden;
+}
+.news-group .container .left .like-share .share {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.news-group .container .left .like-share .share span {
+  font-family: regular;
+  font-size: 14px;
+  color: #333;
+}
+.news-group .container .left .like-share .share .it {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #333;
+  color: #333;
+}
+.news-group .container .left .news-orther {
+  margin-bottom: 50px;
+}
+@media (max-width: 991px) {
+  .news-group .container .left .news-orther {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .news-group .container .left .news-orther {
+    margin-bottom: 15px;
+  }
+}
+.news-group .container .left .news-orther h2 {
+  margin-bottom: 15px;
+}
+.news-group .container .left .news-orther .slide-news-orther .item-news .img {
+  margin-bottom: 15px;
+}
+.news-group .container .left .news-orther .slide-news-orther .item-news .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-group .container .left .news-orther .slide-news-orther .item-news h3 a {
+  font-family: bold;
+  font-size: 14px;
+  color: #333;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+.news-group .container .left .news-orther .slide-news-orther .item-news h3 a:hover {
+  color: #a90d13;
+}
+.news-group .container .left .news-orther .slide-news-orther .item-news:hover img {
+  transform: scale(1.05);
+}
+.news-group .container .left .news-orther .owl-nav {
+  position: absolute;
+  top: -50px;
+  right: 0;
+}
+.news-group .container .left .news-orther .owl-nav .owl-next,
+.news-group .container .left .news-orther .owl-nav .owl-prev {
+  font-size: 18px;
+}
+.news-group .container .left .news-orther .owl-nav .owl-next:hover,
+.news-group .container .left .news-orther .owl-nav .owl-prev:hover {
+  background-color: transparent;
+  color: #a90d13;
+}
+.news-group .container .right {
+  width: 316px;
+}
+.news-group .container .right .item {
+  display: flex;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ededed;
+}
+.news-group .container .right .item .img {
+  width: 86px;
+}
+.news-group .container .right .item .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-group .container .right .item h3 {
+  width: calc(100% - 86px);
+  padding-left: 10px;
+}
+.news-group .container .right .item h3 a {
+  font-family: regular;
+  font-size: 14px;
+  color: #333;
+}
+.news-group .container .right .item h3:hover a {
+  color: #a90d13;
+}
+.news-group .container .right .item:hover img {
+  transform: scale(1.05);
+}
+.news-group .container .right .project-hot .silde-project .item {
+  position: relative;
+}
+.news-group .container .right .project-hot .silde-project .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-group .container .right .project-hot .silde-project .item > h3 {
+  font-family: bold;
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 10px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  z-index: 1;
+  transition: opacity 0.3s linear;
+}
+.news-group .container .right .project-hot .silde-project .item:after {
+  content: "";
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+}
+.news-group .container .right .project-hot .silde-project .item h3 {
+  width: 100%;
+}
+.news-group .container .right .project-hot .owl-dots .owl-dot span {
+  background-color: #acacac;
+}
+.news-group .container .right .project-hot .owl-dots .owl-dot.active span, .news-group .container .right .project-hot .owl-dots .owl-dot:hover span {
+  background-color: #a90d13;
+}
+
 footer {
   background-color: #efefef;
   padding-top: 50px;
@@ -1440,9 +1667,9 @@ label.error {
 .page {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .page span,
 .page a,
@@ -1450,7 +1677,7 @@ label.error {
   height: 33px;
   width: 33px;
   border-radius: 50%;
-  border: 1px solid #aaa;
+  border: 1px solid #acacac;
   display: flex;
   align-items: center;
   justify-content: center;

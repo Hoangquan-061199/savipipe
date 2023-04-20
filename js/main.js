@@ -47,6 +47,32 @@ $(function () {
       '<i class="fa-solid fa-angle-right"></i>',
     ],
   });
+  $('.silde-project').owlCarousel({
+    loop: 0,
+    items: 1,
+    center: 0,
+    dots: 1,
+    nav: 0,
+    margin:10,
+    smartSpeed: 1000,
+    // navText: [
+    //   '<i class="fa-solid fa-angle-left"></i>',
+    //   '<i class="fa-solid fa-angle-right"></i>',
+    // ],
+  });
+  $('.slide-news-orther').owlCarousel({
+    loop: 1,
+    items: 3,
+    center: 0,
+    dots: 0,
+    nav: 1,
+    margin:10,
+    smartSpeed: 1000,
+    navText: [
+      '<i class="fa-solid fa-angle-left"></i>',
+      '<i class="fa-solid fa-angle-right"></i>',
+    ],
+  });
 
   let sync1 = $('.slide-index');
   let sync2 = $('.slide-index-2');

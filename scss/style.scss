@@ -77,6 +77,7 @@ img {
 
 .img {
     overflow: hidden;
+    display: block;
 }
 
 .title {
@@ -110,6 +111,10 @@ img {
         &:after {
             display: none;
         }
+    }
+
+    &.red {
+        color: $--main-color;
     }
 }
 
@@ -532,35 +537,7 @@ header {
         grid-template-columns: repeat(4, 1fr);
 
         .item {
-            position: relative;
-
-            img {
-                @include resizeImg;
-            }
-
-            >h3 {
-                @include font(bold, $--font-size-p-extra, $--color-white);
-                text-transform: uppercase;
-                text-align: center;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                padding-bottom: 10px;
-                @include _max-text(1);
-                z-index: 1;
-                transition: opacity 0.3s linear;
-            }
-
-            &:after {
-                content: "";
-                background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.9));
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 30%;
-            }
+            @include cssItemProject;
 
             .info {
                 position: absolute;
@@ -1047,6 +1024,230 @@ header {
     }
 }
 
+.date {
+    i {
+        color: $--main-color;
+        margin-right: 5px;
+    }
+
+}
+
+.news-group {
+    padding-top: 50px;
+
+    .container {
+        display: flex;
+
+        .left {
+            width: calc(100% - 316px);
+            padding-right: 45px;
+
+            .title-detail {
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid $--border-color;
+            }
+
+            .item {
+                display: flex;
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid $--border-color;
+
+                .img {
+                    width: 255px;
+
+                    img {
+                        @include resizeImg;
+                    }
+                }
+
+                .text {
+                    width: calc(100% - 255px);
+                    padding-left: 15px;
+
+                    h3 {
+                        margin-bottom: 15px;
+
+                        a {
+                            @include font(bold, $--font-size-name, $--text-color);
+                        }
+
+                        &:hover {
+                            a {
+                                color: $--main-color;
+                            }
+                        }
+                    }
+
+                    .desc {
+                        @include _max-text(2);
+                    }
+                }
+
+                &:hover {
+                    img {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+            .like-share {
+                padding: 10px 0 15px;
+                margin-bottom: 15px;
+                border-bottom: 1px solid $--border-color;
+                @include flexYCenter;
+                justify-content: space-between;
+
+                .fb-like {
+                    width: 65px;
+                    overflow: hidden;
+                }
+
+                .share {
+                    @include flexYCenter;
+                    gap: 15px;
+
+                    span {
+                        @include font(regular, $--font-size-p, $--text-color);
+                    }
+
+                    .it {
+                        width: 30px;
+                        height: 30px;
+                        @include flexCenter;
+                        border-radius: 50%;
+                        border: 1px solid $--text-color;
+
+                        color: $--text-color;
+                    }
+                }
+            }
+
+            .news-orther {
+                @include marginBottom(50px);
+
+                h2 {
+                    margin-bottom: 15px;
+                }
+
+                .slide-news-orther {
+                    .item-news {
+                        .img {
+                            margin-bottom: 15px;
+
+                            img {
+                                @include resizeImg;
+                            }
+
+                        }
+
+                        h3 {
+                            a {
+                                @include font(bold, $--font-size-p, $--text-color);
+                                @include _max-text(2);
+
+                                &:hover {
+                                    color: $--main-color
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            img {
+                                transform: scale(1.05);
+                            }
+                        }
+                    }
+                }
+
+                .owl-nav {
+                    position: absolute;
+                    top: -50px;
+                    right: 0;
+
+                    .owl-next,
+                    .owl-prev {
+                        font-size: 18px;
+
+                        &:hover {
+                            background-color: transparent;
+                            color: $--main-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .right {
+            width: 316px;
+
+            .item {
+                display: flex;
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid $--border-color;
+
+                .img {
+                    width: 86px;
+
+                    img {
+                        @include resizeImg;
+                    }
+                }
+
+                h3 {
+                    width: calc(100% - 86px);
+                    padding-left: 10px;
+
+                    a {
+                        @include font(regular, $--font-size-p, $--text-color);
+                    }
+
+                    &:hover {
+                        a {
+                            color: $--main-color;
+                        }
+                    }
+                }
+
+                &:hover {
+                    img {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+            .project-hot {
+                .silde-project {
+                    .item {
+                        @include cssItemProject;
+
+                        h3 {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .owl-dots {
+                    .owl-dot {
+                        span {
+                            background-color: $--border-color-owldot;
+                        }
+
+                        &.active,
+                        &:hover {
+                            span {
+                                background-color: $--main-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer {
     background-color: $--footer-color;
     padding-top: 50px;
@@ -1189,9 +1390,9 @@ label.error {
 .page {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
     margin-top: 30px;
+    margin-bottom: 30px;
 
     span,
     a,
