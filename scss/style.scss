@@ -20,12 +20,8 @@ body {
     font-family: regular;
     font-size: $--font-size-p;
 
-    @include maxWidth(991px) {
-        margin-top: 76px;
-    }
-
-    @include maxWidth(767px) {
-        margin-top: 57px;
+    &.no-scroll {
+        overflow: hidden;
     }
 }
 
@@ -190,6 +186,10 @@ header {
             >li {
                 position: relative;
 
+                .icon-show-sub {
+                    display: none;
+                }
+
                 a {
                     text-transform: uppercase;
                     @include font(bold, $--font-size-p, $--text-color);
@@ -239,6 +239,154 @@ header {
                 }
 
 
+            }
+        }
+
+        .touch-menu {
+            display: none;
+        }
+    }
+
+    @include maxWidth(991px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $--height-hd-mb;
+        background-color: $--color-white;
+        z-index: 9999;
+
+        .container {
+            position: relative;
+            height: $--height-hd-mb;
+
+            .logo {
+                height: 50px;
+                @include flexCenter;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .hd-top {
+                display: none;
+            }
+
+            .hd-bot {
+                position: fixed;
+                top: $--height-hd-mb;
+                left: 0;
+                bottom: 0;
+                width: 30%;
+                overflow: auto;
+                background-color: $--color-white;
+                z-index: 99;
+                height: unset;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                gap: 0;
+                transform: translateX(-102%);
+                opacity: 0;
+                transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+
+                &.active {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+               > li {
+                    padding: 10px 15px;
+                    width: 100%;
+                    border-bottom: 1px solid $--border-color;
+                    position: relative;
+
+                    .icon-show-sub {
+                        display: block;
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        width: 30px;
+                        height: 30px;
+                        @include flexCenter;
+                        transition: transform 0.3s linear;
+                        &.active {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .sub-menu {
+                        position: static;
+                        opacity: 1;
+                        padding: 15px 0 0;
+                        display: none;
+                        pointer-events: all;
+                        width: 100%;
+                        background-color: $--color-white;
+                         li {
+                            padding: 10px 0;
+                            border-top: 1px solid $--border-color;
+                            &:first-child {
+                                border-top: 2px solid $--main-color;
+                            }
+                            a {
+                                color: $--text-color;
+                            }
+                         }
+                    }
+
+                    &:first-child {
+                        display: none;
+                    }
+                }
+            }
+
+            .touch-menu {
+                position: relative;
+                display: block;
+                width: 32px;
+                height: 32px;
+                z-index: 999;
+
+                span {
+                    width: 24px;
+                    height: 3px;
+                    background-color: $--main-color;
+                    color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 4px;
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        width: inherit;
+                        height: inherit;
+                        background-color: $--main-color;
+                        top: -8px;
+                        position: absolute;
+                        transition: transform 0.3s linear;
+                    }
+
+                    &::after {
+                        top: 8px;
+                    }
+                }
+
+                &.active {
+                    span {
+                        transform: rotate(-135deg);
+                        width: 28px;
+
+                        &::before,
+                        &::after {
+                            top: 0px;
+                            transform: rotate(-90deg);
+                        }
+                    }
+                }
             }
         }
     }
@@ -1396,6 +1544,41 @@ header {
         .left,
         .right {
             width: 50%;
+        }
+
+        .left {
+            .lSPager.lSGallery {
+                li {
+
+                    &.active,
+                    &:hover {
+                        border-radius: 0;
+                    }
+                }
+            }
+
+            .lSAction {
+                a {
+                    background-color: $--color-white;
+                    @include flexCenter;
+                    font-size: 18px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    top: unset;
+                    bottom: 10px;
+
+                }
+
+                >.lSPrev {
+                    right: 60px;
+                    left: unset;
+                }
+
+                >.lSNext {
+                    right: 10px;
+                }
+            }
         }
 
         .right {

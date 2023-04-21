@@ -110,8 +110,8 @@ $(function () {
         thumbMargin: 10,
         slideMargin: 0,
         controls: true,
-        prevHtml: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/> </svg>',
-        nextHtml: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/> </svg>',
+        prevHtml: '<i class="fa-solid fa-angle-left"></i>',
+        nextHtml: '<i class="fa-solid fa-angle-right"></i>',
     });
 }
 
@@ -216,6 +216,24 @@ $(function () {
   resizeImage('.news-index .right .item .img', 131/189);
   resizeImage('.banner', 467/1365);
 
+  $('.icon-show-sub').click(function() {
+    $('.sub-menu').slideToggle();
+    $(this).addClass('active');
+  })
+
+  $('.touch-menu').click(function() {
+    $('.hd-bot').toggleClass('active');
+    $(this).toggleClass('active');
+    $('.overlay').toggleClass('show');
+    $('body').toggleClass('no-scroll');
+  })
+
+  $('.overlay').click( function() {
+    $('.hd-bot').removeClass('active');
+    $(this).removeClass('show');
+    $('.touch-menu').removeClass('active');
+    $('body').removeClass('no-scroll');
+  })
 
   $('.backtotop').click(function () {
       let body = $("html, body");
