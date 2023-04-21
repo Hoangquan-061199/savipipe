@@ -248,31 +248,100 @@
 @mixin cssItemProject {
     position: relative;
 
-            img {
-                @include resizeImg;
-            }
+    img {
+        @include resizeImg;
+    }
 
-            >h3 {
-                @include font(bold, $--font-size-p-extra, $--color-white);
-                text-transform: uppercase;
-                text-align: center;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                padding-bottom: 10px;
-                @include _max-text(1);
-                z-index: 1;
-                transition: opacity 0.3s linear;
-            }
+    >h3 {
+        @include font(bold, $--font-size-p-extra, $--color-white);
+        text-transform: uppercase;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-bottom: 10px;
+        @include _max-text(1);
+        z-index: 1;
+        transition: opacity 0.3s linear;
+    }
 
-            &:after {
-                content: "";
-                background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.9));
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 30%;
-            }
+    &:after {
+        content: "";
+        background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.9));
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30%;
+    }
+}
+
+@mixin cssInfoProject {
+    .info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        @include flexCenter;
+        flex-direction: column;
+        padding: 20px 30px;
+        color: $--color-white;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s linear;
+
+        h3 {
+            @include font(bold, $--font-size-p-extra, $--color-white);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .desc {
+            text-align: center;
+        }
+
+        .icon-plus {
+            width: 45px;
+            height: 45px;
+            @include flexCenter;
+            background-color: $--main-color;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    }
+
+    &:hover {
+        .info {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        >h3 {
+            opacity: 0;
+        }
+    }
+}
+
+@mixin cssBtnDown {
+    background-color: $--main-color;
+    color: $--color-white;
+    padding: 7px 20px;
+    border-radius: 5px;
+    border: 1px solid $--main-color;
+    transition: background 0.3s linear;
+    cursor: pointer;
+    @include font(bold, $--font-size-p, $--color-white);
+
+    i {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        color: $--main-color;
+        background-color: $--color-white;
+    }
 }

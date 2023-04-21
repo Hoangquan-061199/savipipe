@@ -187,17 +187,58 @@ header {
             height: 50px;
             gap: 30px;
 
-            li {
+            >li {
+                position: relative;
+
                 a {
                     text-transform: uppercase;
                     @include font(bold, $--font-size-p, $--text-color);
                 }
 
-                &:hover {
-                    a {
-                        color: $--main-color;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: -20px;
+                    left: 0;
+                    right: 0;
+                    height: 30px;
+                }
+
+                .sub-menu {
+                    position: absolute;
+                    background-color: rgba(152, 27, 30, 0.9);
+                    width: 250px;
+                    top: calc(100% + 15px);
+                    left: -15px;
+                    transform: translateY(10px);
+                    opacity: 0;
+                    pointer-events: none;
+                    padding: 10px 0;
+
+                    li {
+                        a {
+                            color: $--color-white;
+                            text-transform: unset;
+                            font-family: regular
+                        }
+
+                        padding: 7px 15px;
                     }
                 }
+
+                &:hover {
+                    >a {
+                        color: $--main-color;
+                    }
+
+                    .sub-menu {
+                        opacity: 1;
+                        transform: translateY(0);
+                        pointer-events: all;
+                    }
+                }
+
+
             }
         }
     }
@@ -247,31 +288,35 @@ header {
     }
 }
 
-.slide-index-2 {
+.slide-thumb {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     @include marginBottom(100px);
 
-    .item {
-        @include font(bold, $--font-size-p, $--text-color);
-        padding: 15px 0;
-        text-transform: uppercase;
-        text-align: center;
-    }
+    .slide-index-2 {
 
-    .owl-item {
-        transition: background 0.3s linear, color 0.3s linear;
+        .item {
+            @include font(bold, 12px, $--text-color);
+            padding: 15px 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
 
-        &.active.current,
-        &:hover {
-            background-color: $--main-color;
-            cursor: pointer;
+        .owl-item {
+            transition: background 0.3s linear, color 0.3s linear;
 
-            .item {
-                color: $--color-white;
+            &.active.current,
+            &:hover {
+                background-color: $--main-color;
+                cursor: pointer;
+
+                .item {
+                    color: $--color-white;
+                }
             }
         }
     }
 }
+
 
 .about-index {
     @include marginBottom(100px);
@@ -457,74 +502,74 @@ header {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+    }
+}
 
-        .product-item {
-            position: relative;
+.product-item {
+    position: relative;
 
-            >h3 {
-                position: absolute;
-                bottom: 0;
-                height: 55px;
-                left: 0;
-                right: 0;
-                color: $--color-white;
-                padding: 0 10px;
-                line-height: 55px;
-                @include _max-text(1);
-                background: rgba(0, 0, 0, 0.5);
-                transition: opacity 0.3s linear;
-            }
+    >h3 {
+        position: absolute;
+        bottom: 0;
+        height: 55px;
+        left: 0;
+        right: 0;
+        color: $--color-white;
+        padding: 0 10px;
+        line-height: 55px;
+        @include _max-text(1);
+        background: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s linear;
+    }
 
-            .img {
-                img {
-                    @include resizeImg;
-                }
-            }
+    .img {
+        img {
+            @include resizeImg;
+        }
+    }
 
-            .info {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                color: $--color-white;
-                padding: 35px 15px 15px;
-                background: rgba(0, 0, 0, 0.5);
-                opacity: 0;
-                z-index: 1;
-                pointer-events: none;
-                transition: opacity 0.3s linear;
+    .info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: $--color-white;
+        padding: 35px 15px 15px;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+        transition: opacity 0.3s linear;
 
-                h3 {
-                    font-family: bold;
-                    margin-bottom: 10px;
-                }
-            }
+        h3 {
+            font-family: bold;
+            margin-bottom: 10px;
+        }
+    }
 
-            .icon-right {
-                position: absolute;
-                bottom: 7px;
-                right: 7px;
-                width: 40px;
-                height: 40px;
-                background-color: $--main-color;
-                color: $--color-white;
-                font-size: 20px;
-                @include flexCenter;
-                border-radius: 5px;
-                z-index: 10;
-            }
+    .icon-right {
+        position: absolute;
+        bottom: 7px;
+        right: 7px;
+        width: 40px;
+        height: 40px;
+        background-color: $--main-color;
+        color: $--color-white;
+        font-size: 20px;
+        @include flexCenter;
+        border-radius: 5px;
+        z-index: 10;
+    }
 
-            &:hover {
-                >h3 {
-                    opacity: 0;
-                }
+    &:hover {
+        >h3 {
+            opacity: 0;
+        }
 
-                .info {
-                    opacity: 1;
-                    pointer-events: all;
-                }
-            }
+        .info {
+            opacity: 1;
+            pointer-events: all;
         }
     }
 }
@@ -538,53 +583,8 @@ header {
 
         .item {
             @include cssItemProject;
+            @include cssInfoProject;
 
-            .info {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0, 0, 0, 0.6);
-                @include flexCenter;
-                flex-direction: column;
-                padding: 20px 30px;
-                color: $--color-white;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.3s linear;
-
-                h3 {
-                    @include font(bold, $--font-size-p-extra, $--color-white);
-                    text-transform: uppercase;
-                    text-align: center;
-                    margin-bottom: 10px;
-                }
-
-                .desc {
-                    text-align: center;
-                }
-
-                .icon-plus {
-                    width: 45px;
-                    height: 45px;
-                    @include flexCenter;
-                    background-color: $--main-color;
-                    border-radius: 50%;
-                    margin-top: 20px;
-                }
-            }
-
-            &:hover {
-                .info {
-                    opacity: 1;
-                    pointer-events: all;
-                }
-
-                >h3 {
-                    opacity: 0;
-                }
-            }
         }
     }
 }
@@ -761,6 +761,7 @@ header {
     .slide-about {
         max-width: 60%;
         margin: 0 auto;
+        padding-bottom: 20px;
     }
 
     .desc {
@@ -844,7 +845,6 @@ header {
                 p>span {
                     display: block;
                     @include font(regular, 20px, $--text-color);
-                    position: relative;
 
                     &:nth-child(2) {
                         @include font(bold, 23px, $--main-color);
@@ -1163,7 +1163,7 @@ header {
 
                 .owl-nav {
                     position: absolute;
-                    top: -50px;
+                    top: -70px;
                     right: 0;
 
                     .owl-next,
@@ -1242,6 +1242,328 @@ header {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+.project {
+    .list-project {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+
+        .item {
+            @include cssItemProject;
+            @include cssInfoProject;
+        }
+    }
+}
+
+.project-detail {
+    @include marginBottom(50px);
+
+    .container {
+
+        @include flexXCenter;
+
+        .slide-project-detail,
+        .info {
+            width: 50%;
+        }
+
+        .slide-project-detail {
+            .owl-nav {
+                position: absolute;
+                right: 5px;
+                bottom: 15px;
+                @include flexXCenter;
+
+                @include cssNavOwlAboutIndex;
+            }
+
+            .item {
+                img {
+                    @include resizeImg;
+                }
+
+                &:hover {
+                    img {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+        }
+
+        .info {
+            padding-left: 50px;
+
+            .title {
+                margin-bottom: 15px;
+            }
+
+            .desc {
+                @include marginBottom(30px);
+            }
+
+            .btn-contact {
+                background-color: $--main-color;
+                display: inline-block;
+                color: $--color-white;
+                padding: 7px 20px;
+                text-transform: uppercase;
+                font-family: bold;
+                border-radius: 5px;
+
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.project-orther {
+    @include marginBottom(50px);
+
+    .title {
+        border-bottom: 1px solid $--border-color;
+    }
+
+    .slide-project-orther {
+        .item {
+            @include cssItemProject;
+        }
+
+
+        .owl-nav {
+            position: absolute;
+            top: -90px;
+            right: 0;
+            @include flexCenter;
+            @include cssNavOwlAboutIndex;
+
+            .owl-next,
+            .owl-prev {
+                border: 1px solid $--text-color !important;
+                color: $--text-color !important;
+                width: 30px;
+                height: 30px;
+                @include flexCenter;
+
+                i {
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    color: $--main-color !important;
+                }
+            }
+        }
+    }
+}
+
+.pdf-view {
+    @include marginBottom(50px);
+
+    .title {
+        @include flexYCenter;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .btn-down {
+            @include cssBtnDown;
+        }
+    }
+
+    .iframe {
+        iframe {
+            width: 100%;
+            height: 500px;
+        }
+    }
+
+}
+
+.product-detail {
+    @include marginBottom(50px);
+
+    .container {
+        display: flex;
+
+        .left,
+        .right {
+            width: 50%;
+        }
+
+        .right {
+            padding-left: 50px;
+
+            .title {
+                margin-bottom: 15px;
+                padding-bottom: 0;
+            }
+
+            .desc {
+                @include marginBottom(30px);
+            }
+
+            .action-product {
+                @include flexCenter;
+                gap: 15px;
+                @include marginBottom(30px);
+
+                .quote,
+                .catalog {
+                    @include cssBtnDown;
+                    width: calc((100% - 15px)/2);
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+
+                .catalog {
+                    background-color: #e5e5e5;
+                    color: $--text-color;
+                    border: 0;
+
+                    &:hover {
+                        background-color: $--main-color;
+                        color: $--color-white;
+                    }
+                }
+            }
+
+            h3 {
+                @include font(bold, $--font-size-name-min, $--text-color);
+                margin-bottom: 15px;
+                position: relative;
+                line-height: 1;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 55%;
+                    left: 143px;
+                    right: 0;
+                    transform: translateY(-50%);
+                    border-bottom: 1px dotted $--border-color-owldot;
+                    z-index: -1;
+                }
+            }
+
+            .contact-buy-product {
+                @include flexYCenter;
+                flex-wrap: wrap;
+                gap: 15px;
+
+                .item {
+                    width: calc((100% - 15px)/2);
+
+                    p {
+                        &:first-child {
+                            margin-bottom: 15px;
+                            @include font(bold, $--font-size-p, $--text-color);
+                        }
+
+                        &:nth-child(2) {
+                            @include flexYCenter;
+                            gap: 15px;
+
+                            .icon {
+                                width: 20px;
+                                height: 20px;
+                                background-color: $--color-zalo;
+                                @include flexCenter;
+                                border-radius: 50%;
+
+                                img {
+                                    max-width: 80%;
+                                    max-height: 80%;
+                                }
+                            }
+
+                            a {
+                                @include font(regular, $--font-size-p, $--text-color);
+
+                                &:hover {
+                                    color: $--main-color;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.product-content {
+    @include marginBottom(50px);
+
+    .list-module-product {
+        @include flexCenter;
+
+        .item {
+            width: calc(100%/5);
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+            background-color: $--border-color;
+            @include font(bold, $--font-size-p, $--text-color);
+            text-transform: uppercase;
+            border: 1px solid $--border-color-product-content;
+            border-top: 2px solid $--color-white;
+            border-left: 0;
+
+            &:first-child {
+                border-left: 1px solid $--border-color-product-content;
+            }
+
+            &:hover,
+            &.active {
+                border-top: 2px solid $--main-color;
+                border-bottom: 1px solid $--color-white;
+                color: $--main-color;
+                background-color: $--color-white;
+
+            }
+
+        }
+    }
+
+    .list-content-product {
+        padding-top: 30px;
+
+        .item {
+            width: 100%;
+            display: none;
+
+            &.active {
+                display: block;
+            }
+
+            .list-img,
+            .list-certification,
+            .list-project {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+
+                .img {
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    text-align: center;
+                }
+
+                .item-project {
+                    @include cssItemProject;
+                    @include cssInfoProject;
                 }
             }
         }
@@ -1393,6 +1715,10 @@ label.error {
     gap: 8px;
     margin-top: 30px;
     margin-bottom: 30px;
+
+    &.center {
+        justify-content: center;
+    }
 
     span,
     a,

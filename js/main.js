@@ -47,6 +47,32 @@ $(function () {
       '<i class="fa-solid fa-angle-right"></i>',
     ],
   });
+  $('.slide-project-detail').owlCarousel({
+    loop: 0,
+    items: 1,
+    center: 0,
+    dots: 0,
+    nav: 1,
+    margin:10,
+    smartSpeed: 1000,
+    navText: [
+      '<i class="fa-solid fa-angle-left"></i>',
+      '<i class="fa-solid fa-angle-right"></i>',
+    ],
+  });
+  $('.slide-project-orther').owlCarousel({
+    loop: 0,
+    items: 3,
+    center: 0,
+    dots: 0,
+    nav: 1,
+    margin:20,
+    smartSpeed: 1000,
+    navText: [
+      '<i class="fa-solid fa-angle-left"></i>',
+      '<i class="fa-solid fa-angle-right"></i>',
+    ],
+  });
   $('.silde-project').owlCarousel({
     loop: 0,
     items: 1,
@@ -73,6 +99,21 @@ $(function () {
       '<i class="fa-solid fa-angle-right"></i>',
     ],
   });
+
+  if ($('#lightSlider').length > 0) {
+    $('#lightSlider').lightSlider({
+        loop: 0,
+        gallery: true,
+        item: 1,
+        vThumbWidth: 100,
+        thumbItem: 4,
+        thumbMargin: 10,
+        slideMargin: 0,
+        controls: true,
+        prevHtml: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/> </svg>',
+        nextHtml: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/> </svg>',
+    });
+}
 
   let sync1 = $('.slide-index');
   let sync2 = $('.slide-index-2');
@@ -175,29 +216,6 @@ $(function () {
   resizeImage('.news-index .right .item .img', 131/189);
   resizeImage('.banner', 467/1365);
 
-  // if ($(window).width() > 992) {
-  //     resizeImage(".service .list-service .item .img", 330 / 570);
-  //     bodyVideoIndex.css('height', heightVideo - heightTitleVideo);
-  // }
-  // if ($(window).width() < 767) {
-  //     resizeImage(".video-news-index .container .left .body .img", 92 / 162);
-  //     resizeImage(".service .list-service .item .img", 1);
-  // }
-
-  // if (technologyItem.length > 0) {
-  //     technologyItem.click(function () {
-  //         var $tag = $(this).children('.description').slideToggle();
-  //         $('.list-technology .item .description').not($tag).slideUp();
-
-  //         if (!$(this).hasClass('active')) {
-  //             $(this).addClass('active');
-  //         }
-  //         else {
-  //             $(this).removeClass('active');
-  //         }
-  //         technologyItem.not($(this)).removeClass('active');
-  //     })
-  // }
 
   $('.backtotop').click(function () {
       let body = $("html, body");
@@ -205,58 +223,17 @@ $(function () {
       });
   })
 
-  // moduleProductDetailItem.click(function () {
-  //     let dataIndex = $(this).data('index');
-  //     moduleProductDetailItem.not($(this)).removeClass('active');
-  //     contentItemProductDetail.not($('#content-' + dataIndex)).removeClass('active')
-  //     if (!$(this).hasClass('active')) {
-  //         $(this).addClass('active')
-  //     }
-  //     if (!$('#content-' + dataIndex).hasClass('active')) {
-  //         $('#content-' + dataIndex).addClass('active');
-  //     }
-  // });
+  $('.list-module-product .item').click(function() {
+    $('.list-module-product .item').not($(this)).removeClass('active');
+    $(this).addClass('active');
 
-  // btnReset.click(function () {
-  //     $('input, textarea').each(function () {
-  //         $(this).val('')
-  //     })
-  // });
+    let id = $(this).attr('data-index');
 
-  // touchMenu.click(function () {
-  //     $(this).toggleClass('active');
-  //     $('.menu').toggleClass('active');
-  //     $('.bg-black').toggleClass('show');
-  // });
+    $('.list-content-product .item').not($('#content-' + id)).removeClass('active');
+    $('#content-' + id).addClass('active');
+  })
 
-  // bgBlack.click(function () {
-  //     $('.menu').removeClass('active');
-  //     touchMenu.removeClass('active');
-  //     $('.bg-black').removeClass('show');
-  // })
 
-  // iconShowSubMenu.click(function () {
-  //     $(this).toggleClass('active');
-  //     $(this).prev('.sub-menu').slideToggle();
-  // });
-
-  // iconShowSubMenu2.click(function () {
-  //     console.log($(this))
-  //     $(this).toggleClass('active');
-  //     $(this).prev('.list-product').slideToggle();
-  // });
-
-  // $(window).scroll(function () {
-  //     if ($(window).scrollTop() > 100) {
-  //         if (!headerElement.hasClass('fixed')) {
-  //             headerElement.addClass('fixed');
-  //         }
-  //     } else {
-  //         if (headerElement.hasClass('fixed')) {
-  //             headerElement.removeClass('fixed');
-  //         }
-  //     }
-  // })
 });
 
 const resizeImage = (e, s) => {
