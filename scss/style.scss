@@ -23,6 +23,10 @@ body {
     &.no-scroll {
         overflow: hidden;
     }
+
+    @include maxWidth(991px) {
+        margin-top: $--height-hd-mb;
+    }
 }
 
 input {
@@ -111,6 +115,10 @@ img {
 
     &.red {
         color: $--main-color;
+    }
+
+    @include maxWidth(991px) {
+        font-size: 20px;
     }
 }
 
@@ -292,12 +300,16 @@ header {
                 opacity: 0;
                 transition: opacity 0.3s ease-in, transform 0.3s ease-in;
 
+                @include maxWidth(767px) {
+                    width: 100%;
+                }
+
                 &.active {
                     opacity: 1;
                     transform: translateX(0);
                 }
 
-               > li {
+                >li {
                     padding: 10px 15px;
                     width: 100%;
                     border-bottom: 1px solid $--border-color;
@@ -312,6 +324,7 @@ header {
                         height: 30px;
                         @include flexCenter;
                         transition: transform 0.3s linear;
+
                         &.active {
                             transform: rotate(180deg);
                         }
@@ -325,16 +338,19 @@ header {
                         pointer-events: all;
                         width: 100%;
                         background-color: $--color-white;
-                         li {
+
+                        li {
                             padding: 10px 0;
                             border-top: 1px solid $--border-color;
+
                             &:first-child {
                                 border-top: 2px solid $--main-color;
                             }
+
                             a {
                                 color: $--text-color;
                             }
-                         }
+                        }
                     }
 
                     &:first-child {
@@ -402,13 +418,14 @@ header {
     .owl-nav {
         position: absolute;
         top: 50%;
+        transform: translateY(-50%);
         left: 0;
         right: 0;
 
         .owl-next,
         .owl-prev {
             position: absolute;
-            top: 0;
+            top: -24px;
             width: 48px;
             height: 48px;
             display: block;
@@ -432,6 +449,19 @@ header {
 
         .owl-prev {
             left: 20px;
+        }
+
+        @include maxWidth(767px) {
+
+            .owl-next,
+            .owl-prev {
+                width: 30px;
+                height: 30px;
+
+                i {
+                    font-size: 16px;
+                }
+            }
         }
     }
 }
@@ -463,6 +493,13 @@ header {
             }
         }
     }
+
+    @include maxWidth(767px) {
+        .container {
+            padding: 0;
+        }
+    }
+
 }
 
 
@@ -492,6 +529,7 @@ header {
                 border-radius: 5px;
                 border: 1px solid $--main-color;
                 transition: background 0.3s linear;
+                display: inline-block;
 
                 i {
                     margin-left: 10px;
@@ -577,6 +615,27 @@ header {
                 }
             }
         }
+
+        @include maxWidth(991px) {
+
+            .left {
+                padding-right: 20px;
+            }
+        }
+
+        @include maxWidth(767px) {
+            flex-direction: column;
+            gap: 15px;
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .right::after {
+                display: none;
+            }
+        }
     }
 
     &.un {
@@ -604,6 +663,21 @@ header {
                     right: unset;
                 }
             }
+
+            @include maxWidth(991px) {
+                .right {
+                    padding-right: 20px;
+
+                    .owl-nav {
+                        right: 20px;
+                    }
+                }
+            }
+
+            @include maxWidth(767px) {
+                flex-direction: column;
+            }
+
         }
     }
 }
@@ -641,6 +715,22 @@ header {
 
     @include cssOwlNavCertificate;
 
+    @include maxWidth(991px) {
+        padding-bottom: 20px;
+
+        .title {
+            padding-top: 20px;
+        }
+    }
+
+
+    @include maxWidth(767px) {
+        padding-bottom: 15px;
+
+        .title {
+            padding-top: 15px;
+        }
+    }
 }
 
 .product-index {
@@ -650,6 +740,16 @@ header {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+
+        @include maxWidth(991px) {
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include maxWidth(767px) {
+            gap: 15px;
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 }
 
@@ -734,6 +834,17 @@ header {
             @include cssInfoProject;
 
         }
+
+        @include maxWidth(991px) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 15px;
+            gap: 20px;
+        }
+
+        @include maxWidth(767px) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+        }
     }
 }
 
@@ -815,6 +926,26 @@ header {
                 &:hover {
                     img {
                         transform: scale(1.05);
+                    }
+                }
+            }
+        }
+
+        @include maxWidth(991px) {
+            grid-template-columns: 100%;
+
+            .right {
+                .item {
+                    flex-direction: column;
+
+                    .img,
+                    .info {
+                        width: 100%;
+                        padding: 0;
+                    }
+
+                    .img {
+                        margin-bottom: 15px;
                     }
                 }
             }
@@ -1768,6 +1899,19 @@ footer {
         .ft-item {
             @include cssFtItem;
         }
+
+        @include maxWidth(991px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @include maxWidth(767px) {
+            .container {
+                grid-template-columns: 100%;
+            }
+        }
     }
 
     .ft-bot {
@@ -1800,6 +1944,15 @@ footer {
                     background: $--color-white;
                     color: $--main-color;
                 }
+            }
+        }
+
+        @include maxWidth(991px) {
+            .container {
+                gap: 10px;
+                padding: 10px 0;
+                height: auto;
+                flex-direction: column;
             }
         }
     }

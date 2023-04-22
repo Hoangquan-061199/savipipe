@@ -19,7 +19,18 @@ $(function () {
     navText: [
       '<i class="fa-solid fa-angle-left"></i>',
       '<i class="fa-solid fa-angle-right"></i>',
-    ],
+    ],responsive: {
+      0: {
+        items: 2, nav: 0
+      },
+      768:{
+        items: 3
+      }
+      ,
+      991: {
+        items: 6
+      }
+    }
   });
   $('.slide-about').owlCarousel({
     loop: 1,
@@ -151,6 +162,18 @@ $(function () {
       slideSpeed: 500,
       slideBy: slidesPerPage, //alternatively you can slide by 1, this way the active slide will stick to the first item in the second carousel
       responsiveRefreshRate: 100,
+      responsive: {
+        0: {
+            items: 1
+        },
+        768: {
+            items: 3
+        },
+        1000: {
+            items: 5
+        }
+    }
+
     })
     .on('changed.owl.carousel', syncPosition2);
 
@@ -218,7 +241,7 @@ $(function () {
 
   $('.icon-show-sub').click(function() {
     $('.sub-menu').slideToggle();
-    $(this).addClass('active');
+    $(this).toggleClass('active');
   })
 
   $('.touch-menu').click(function() {
@@ -233,6 +256,7 @@ $(function () {
     $(this).removeClass('show');
     $('.touch-menu').removeClass('active');
     $('body').removeClass('no-scroll');
+    $('.icon-show-sub').removeClass('no-scroll');
   })
 
   $('.backtotop').click(function () {
@@ -250,7 +274,6 @@ $(function () {
     $('.list-content-product .item').not($('#content-' + id)).removeClass('active');
     $('#content-' + id).addClass('active');
   })
-
 
 });
 

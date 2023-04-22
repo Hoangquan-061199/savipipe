@@ -175,6 +175,12 @@
         background-color: $--color-white;
         color: $--main-color;
         font-size: 20px;
+
+        @include maxWidth(991px) {
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+        }
     }
 }
 
