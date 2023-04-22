@@ -934,21 +934,24 @@ header {
         @include maxWidth(991px) {
             grid-template-columns: 100%;
 
-            .right {
-                .item {
-                    flex-direction: column;
+            @include maxWidth(767px) {
+                .right {
+                    .item {
+                        flex-direction: column;
 
-                    .img,
-                    .info {
-                        width: 100%;
-                        padding: 0;
-                    }
+                        .img,
+                        .info {
+                            width: 100%;
+                            padding: 0;
+                        }
 
-                    .img {
-                        margin-bottom: 15px;
+                        .img {
+                            margin-bottom: 15px;
+                        }
                     }
                 }
             }
+
         }
     }
 }
@@ -1030,6 +1033,32 @@ header {
         }
 
     }
+
+    @include maxWidth(991px) {
+        flex-direction: column;
+        gap: 20px;
+
+        .left,
+        .right {
+            width: 100%;
+        }
+
+        &.un {
+            flex-direction: column;
+
+            .right {
+                &.after:after {
+                    display: none;
+                }
+            }
+        }
+
+        .right {
+            &.after:after {
+                display: none;
+            }
+        }
+    }
 }
 
 .production-line {
@@ -1090,6 +1119,12 @@ header {
         }
 
     }
+
+    @include maxWidth(991px) {
+        .desc {
+            max-width: 80%;
+        }
+    }
 }
 
 .scale-production {
@@ -1139,6 +1174,28 @@ header {
                         font-size: 16px;
                     }
                 }
+            }
+        }
+
+        @include maxWidth(991px) {
+            flex-wrap: wrap;
+
+            .title {
+                width: 100%;
+                text-align: center;
+            }
+
+
+            .address {
+                width: calc((100%)/2);
+
+            }
+        }
+
+        @include maxWidth(767px) {
+            .address {
+                width: 100%;
+                border: 0;
             }
         }
     }
@@ -1194,6 +1251,18 @@ header {
         border: 1px solid $--border-color;
         padding: 20px;
     }
+
+    @include maxWidth(991px) {
+        .container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include maxWidth(767px) {
+        .container {
+            grid-template-columns: 100%;
+        }
+    }
 }
 
 .contact-list {
@@ -1212,6 +1281,12 @@ header {
             border: 1px solid $--border-color;
             @include flexCenter;
         }
+    }
+
+    @include maxWidth(767px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 15px;
     }
 }
 
@@ -1299,6 +1374,11 @@ header {
                     color: $--main-color;
                 }
             }
+        }
+
+        @include maxWidth(991px) {
+            display: flex;
+            flex-direction: column-reverse;
         }
     }
 }
@@ -1524,6 +1604,85 @@ header {
                 }
             }
         }
+
+        @include maxWidth(991px) {
+            flex-direction: column;
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .right {
+                .item {
+                    align-items: center;
+
+                    .img {
+                        width: 255px;
+                    }
+
+                    h3 {
+                        width: calc(100% - 255px);
+                    }
+
+                }
+            }
+        }
+
+        @include maxWidth(767px) {
+            .left {
+                padding: 0;
+
+                .item {
+                    flex-direction: column;
+
+                    .img,
+                    .text {
+                        width: 100%;
+                    }
+
+                    .img {
+                        margin-bottom: 15px;
+                    }
+
+                    .text {
+                        padding-left: 0;
+                    }
+                }
+            }
+
+            .right {
+                .item {
+
+                    .img {
+                        width: 90px;
+                    }
+
+                    h3 {
+                        width: calc(100% - 90px);
+                    }
+
+                    .img {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+
+            .page {
+                justify-content: center;
+            }
+
+        }
+    }
+}
+
+.news-detail {
+    @include maxWidth(767px) {
+        padding-top: 15px;
+
+        h1 {
+            font-size: $--font-size-name;
+        }
     }
 }
 
@@ -1537,6 +1696,17 @@ header {
             @include cssItemProject;
             @include cssInfoProject;
         }
+
+        @include maxWidth(991px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @include maxWidth(767px) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+        }
+
     }
 }
 
@@ -1601,6 +1771,23 @@ header {
                 }
             }
         }
+
+        @include maxWidth(991px) {
+            .info {
+                padding-left: 20px;
+            }
+        }
+
+        @include maxWidth(767px) {
+            flex-direction: column-reverse;
+            gap: 15px;
+
+            .slide-project-detail,
+            .info {
+                width: 100%;
+                padding: 0;
+            }
+        }
     }
 }
 
@@ -1623,6 +1810,10 @@ header {
             right: 0;
             @include flexCenter;
             @include cssNavOwlAboutIndex;
+
+            &.disabled {
+                display: none;
+            }
 
             .owl-next,
             .owl-prev {
@@ -1664,6 +1855,24 @@ header {
         }
     }
 
+    @include maxWidth(767px) {
+        position: relative;
+        padding-bottom: 45px;
+
+        .title {
+            position: unset;
+            justify-content: center;
+
+            .btn-down {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+        }
+    }
+
 }
 
 .product-detail {
@@ -1698,6 +1907,12 @@ header {
                     border-radius: 50%;
                     top: unset;
                     bottom: 10px;
+
+                    @include  maxWidth(767px) {
+                        width: 30px;
+                        height: 30px;
+                        font-size: 14px;
+                    }
 
                 }
 
@@ -1746,6 +1961,14 @@ header {
                         background-color: $--main-color;
                         color: $--color-white;
                     }
+                }
+
+                @include maxWidth(767px) {
+                    flex-direction: column;
+                    .quote,
+                .catalog {
+                    width: 100%;
+                }
                 }
             }
 
@@ -1809,6 +2032,35 @@ header {
                     }
 
                 }
+
+                @include maxWidth(767px) {
+                    flex-direction: column;
+
+                    .item {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        @include maxWidth(991px) {
+            flex-direction: column-reverse;
+            gap: 20px;
+
+            .left,
+            .right {
+                width: 100%;
+                padding: 0;
+            }
+
+            .left {
+                #lightSlider {
+                    li {
+                        img {
+                            @include resizeImg;
+                        }
+                    }
+                }
             }
         }
     }
@@ -1847,6 +2099,19 @@ header {
             }
 
         }
+
+        @include maxWidth(991px) {
+            overflow-x: auto;
+            overflow-y: hidden;
+            justify-content: flex-start;
+            @include hiddenScroll;
+
+            .item {
+                white-space: nowrap;
+                width: auto;
+                padding: 0 30px;
+            }
+        }
     }
 
     .list-content-product {
@@ -1867,6 +2132,14 @@ header {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
 
+                @include maxWidth(991px) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include maxWidth(767px) {
+                    grid-template-columns: 100%;
+                }
+
                 .img {
                     margin-bottom: 10px;
                 }
@@ -1879,6 +2152,8 @@ header {
                     @include cssItemProject;
                     @include cssInfoProject;
                 }
+
+                
             }
         }
     }
